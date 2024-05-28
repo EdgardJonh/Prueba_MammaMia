@@ -6,6 +6,7 @@ export const PizzaContext = createContext()
 const PizzaProvider = ({children})=>{
     const [pizzas, setPizzas]=useState([])
     const [carrito, setCarrito]=useState([])
+   
     // llamar al api
     const getDatos = async()=>{
         const datos =await fetch('./pizzas.json')
@@ -37,10 +38,17 @@ const PizzaProvider = ({children})=>{
     const incrementador=(index)=>{
         carrito[index].count++
         setCarrito([...carrito])
+        
     }
     const decrementador=(index)=>{
         carrito[index].count--
         setCarrito([...carrito])
+    
+        if(carrito[index].count === 0){
+            setCarrito([])
+        }
+        
+        
     }
     useEffect(()=>{
         getDatos()
