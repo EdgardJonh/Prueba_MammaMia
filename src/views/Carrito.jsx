@@ -6,14 +6,13 @@ const Carrito = () => {
     
     // console.log(carrito)
   return (
-    <div className="d-flex justify-content-center">
-      <div className="container m-5 bg-light" style={{backgroundColor:'darkgray'}}>
-        <div className="row">
-          <div className='col-xs-12'>
-          <p style={{marginBottom:'0px', padding:'0px'}}>Detalle del pedido:</p>
-          <div className="col-sm-12 p-3" style={{backgroundColor:'white'}}>
-            {/* lista de las pizzass */}
-            {carrito && 
+     <>
+     <div className='container'>
+        <div className='row'>
+          <div className="col-12">
+              {/* lista de las pizzass */}
+              <p>Detalles Carrito:</p>
+              {carrito && 
             carrito.map((producto, index)=> (
                 <div key={producto.id} className="d-flex col-sm-12 justify-content-between border-bottom p-2 align-items-center" style={{width:'100%'}}>
                 <div className="d-flex align-items-center">
@@ -33,14 +32,12 @@ const Carrito = () => {
             
             }
            
-            <h3>Total:${sumaTotal}</h3>
+            <h3 className='text-end'>Total:${sumaTotal}</h3>
             <button className="btn btn-success">Ir a Pagar</button>
           </div>
-          </div>
-         
         </div>
-      </div>
-    </div>
+     </div>
+     </>
   );
 };
 export default Carrito;
