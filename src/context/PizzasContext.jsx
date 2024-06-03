@@ -40,12 +40,31 @@ const PizzaProvider = ({children})=>{
         setCarrito([...carrito])
         
     }
-    const decrementador=(index,id)=>{
+    const decrementador=(index,id,nombre)=>{
         if (carrito[index].count ==1) {
-            alert(id)
-         setCarrito( carrito.filter(a =>
-            a.id !== id
-        ))
+        //    alert
+        Swal.fire({
+            title: `Estas seguro de eliminar tu pizza de ${nombre}?`,
+            text: "¡No podrás revertir esto!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "¡Sí, bórralo!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire({
+                title: "¡Eliminado!",
+                text: `Su pizza de ${nombre} ha sido eliminada.`,
+                icon: "success"
+              });
+              setCarrito( carrito.filter(a =>
+                a.id !== id
+            ))
+            }
+          });
+        // 
+      
 
         } else {
             carrito[index].count--
