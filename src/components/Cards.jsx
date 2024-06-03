@@ -8,7 +8,7 @@ const Cards = ({laspizzas}) => {
   
   return (
     <>
-      <div className="card m-2 p-0" style={{ width: "15rem" }}>
+      <div className="card m-2 p-0 shadow p-3 mb-5 bg-white rounded" style={{ width: "15rem" }}>
         <img src={laspizzas.img} className="card-img-top" alt="..." />
         <div className="card-body">
           <h5 className="card-title border-bottom">{laspizzas.name}</h5>
