@@ -40,13 +40,22 @@ const PizzaProvider = ({children})=>{
         setCarrito([...carrito])
         
     }
-    const decrementador=(index)=>{
-        carrito[index].count--
-        setCarrito([...carrito])
-    
-        if(carrito[index].count === 0){
-            setCarrito([])
+    const decrementador=(index,id)=>{
+        if (carrito[index].count ==1) {
+            alert(id)
+         setCarrito( carrito.filter(a =>
+            a.id !== id
+        ))
+
+        } else {
+            carrito[index].count--
+        
+            setCarrito([...carrito])
         }
+       
+        
+    
+       
         
         
     }

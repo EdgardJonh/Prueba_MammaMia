@@ -21,7 +21,7 @@ const Carrito = () => {
                 </div>
                 <div className="d-flex align-items-center">
                   
-                  <button className="btn btn-danger me-1" onClick={()=>decrementador(index)}>-</button>
+                  <button className="btn btn-danger me-1" onClick={()=>decrementador(index,producto.id)}>-</button>
                   <p className="mb-0">{producto.count}</p>
                   <button className="btn btn-primary ms-1" onClick={()=>incrementador(index)}>+</button>
                   <p className='mb-0 ms-2 me-2'>=</p>
