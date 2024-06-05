@@ -6,7 +6,7 @@ export const PizzaContext = createContext()
 const PizzaProvider = ({children})=>{
     const [pizzas, setPizzas]=useState([])
     const [carrito, setCarrito]=useState([])
-   
+     
     // llamar al api
     const getDatos = async()=>{
         const datos =await fetch('./pizzas.json')
@@ -43,8 +43,9 @@ const PizzaProvider = ({children})=>{
     const decrementador=(index,id,nombre)=>{
         if (carrito[index].count ==1) {
         //    alert
+        
         Swal.fire({
-            title: `Estas seguro de eliminar tu pizza de ${nombre}?`,
+            title: `Estas seguro de eliminar tu pizza ${nombre}?`,
             text: "¡No podrás revertir esto!",
             icon: "warning",
             showCancelButton: true,
@@ -55,7 +56,7 @@ const PizzaProvider = ({children})=>{
             if (result.isConfirmed) {
               Swal.fire({
                 title: "¡Eliminado!",
-                text: `Su pizza de ${nombre} ha sido eliminada.`,
+                text: `Su pizza ${nombre} ha sido eliminada.`,
                 icon: "success"
               });
               setCarrito( carrito.filter(a =>

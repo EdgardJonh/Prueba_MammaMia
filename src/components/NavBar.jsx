@@ -6,7 +6,7 @@ const Navbars = () => {
   const {sumaTotal}=useContext(PizzaContext)
     const setActiveClass = ({isActive})=>(isActive ? 'isActive' : 'noActive')
   return (
-    <div className="bg-primary">
+    <div className="bg-primary fixed-top">
         <div className="d-flex justify-content-around" style={{padding:'10px'}}>
             <NavLink className={setActiveClass} to="/">🍕Pizzeria Mamma Mia!</NavLink>
             <NavLink className={setActiveClass} to="Carrito">🛒${sumaTotal}</NavLink>
